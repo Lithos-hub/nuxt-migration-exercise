@@ -1,14 +1,6 @@
-// import fs from 'fs';
-// import YAML from 'yaml';
 // import webpack from 'webpack';
 
 // require('dotenv').config();
-
-// function readYamlFile(filePath) {
-//   const file = fs.readFileSync(filePath, 'utf8');
-
-//   return YAML.parse(file);
-// }
 
 // export default {
 //   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -195,16 +187,21 @@
 //   serverMiddleware: [{ path: '/api/v1', handler: '@/server' }],
 // };
 
-import { defineNuxtConfig } from 'nuxt/config'; // To avoid ESLint error
-
+// eslint-disable-next-line no-undef
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/i18n', '@element-plus/nuxt', '@pinia/nuxt'],
-  i18n: {
-    locales: ['en', 'vi'],
-    vueI18n: './nuxt-i18n.ts',
-  },
-  css: ['~/assets/css/all.css'],
+  modules: [
+    '@element-plus/nuxt',
+    '@pinia/nuxt',
+    [
+      '@nuxtjs/i18n',
+      {
+        locales: ['en', 'vi'],
+        vueI18n: './i18n.config.js',
+      },
+    ],
+  ],
+  css: ['@/assets/css/all.css'],
   vite: {
     css: {
       preprocessorOptions: {
