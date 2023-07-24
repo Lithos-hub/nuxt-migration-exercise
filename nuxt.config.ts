@@ -5,11 +5,12 @@ export default defineNuxtConfig({
     // '@nuxtjs/eslint-module', // => error
     '@element-plus/nuxt',
     '@pinia/nuxt',
-    '@nuxt/content',
     [
       '@nuxtjs/i18n',
       {
+        strategy: 'prefix_except_default',
         locales: ['en', 'vi'],
+        defaultLocale: 'en',
         vueI18n: './i18n.config.js',
       },
     ],
