@@ -9,12 +9,14 @@ export default (_, inject) => {
   const requireModule = require.context(
     './',
     true,
-    /^(?!.*index).*\.js$/, /* Every javascript file except index.js file */
+    /^(?!.*index).*\.js$/ /* Every javascript file except index.js file */
   );
   requireModule.keys().forEach((fileName) => {
     const module = requireModule(fileName).default;
 
-    const temp = fileName.replace(/(\.\/|\.js)/g /* Remove "./" and ".js" */, '').split('/');
+    const temp = fileName
+      .replace(/(\.\/|\.js)/g /* Remove "./" and ".js" */, '')
+      .split('/');
     const moduleName = temp.length > 1 ? temp[temp.length - 1] : temp[0];
 
     switch (temp[0]) {

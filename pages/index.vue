@@ -2,9 +2,9 @@
   <div :class="$style.abc">
     <transition name="slide-fade" mode="out-in">
       <el-button
-        v-if="$store.getters.locale === 'en'"
+        v-if="locale === 'en'"
         key="en-button"
-        size="mini"
+        size="small"
         type="primary"
         @click="$i18n.setLocale('vi')"
       >
@@ -13,7 +13,7 @@
       <el-button
         v-else
         key="vi-button"
-        size="mini"
+        size="small"
         type="danger"
         @click="$i18n.setLocale('en')"
       >
@@ -28,17 +28,15 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from '@nuxtjs/composition-api';
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+import { useMainStore } from '@/stores';
 
-export default defineComponent({
-  name: 'IndexPage',
+const { t } = useI18n();
+const { locale } = useMainStore();
 
-  head() {
-    return {
-      title: this.$t('Home page'),
-    };
-  },
+useHead({
+  title: t('Home page'),
 });
 </script>
 

@@ -1,38 +1,24 @@
 <template>
   <div>
     <div>{{ $t('This is the project page wrapper') }}</div>
-    {{ $store.state.project.count }}
+    {{ count }}
     <nuxt-child />
   </div>
 </template>
 
-<script>
-import { projectStore } from '@/store-lazy/project';
-import {
-  defineComponent,
-  onMounted,
-  onUnmounted,
-  useStore,
-} from '@nuxtjs/composition-api';
+<script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useLazyStore } from '@/stores';
 
-export default defineComponent({
-  setup() {
-    const store = useStore();
+const { getMany } = useLazyStore();
+const { count } = storeToRefs(useLazyStore());
 
-    store.registerModule('project', projectStore);
-
-    onMounted(() => {
-      try {
-        store.dispatch('project/getMany');
-      } catch (e) {
-        console.error(e);
-      }
-    });
-
-    onUnmounted(() => store.unregisterModule('project'));
-
-    return {};
-  },
+onMounted(() => {
+  try {
+    getMany();
+  } catch (e) {
+    console.error(e);
+  }
 });
 </script>
 

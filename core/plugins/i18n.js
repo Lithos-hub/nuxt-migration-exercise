@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import dev from '@utils/functions/dev';
 
-const i18nPlugin = async({ store, app }) => {
+const i18nPlugin = async ({ store, app }) => {
   // set default locale from store (Cookie)
   if (store.getters.locale) {
     await app.i18n.setLocale(store.getters.locale);

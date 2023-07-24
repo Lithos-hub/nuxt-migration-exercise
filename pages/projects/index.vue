@@ -1,20 +1,16 @@
 <template>
   <div>
-    {{ $t('This is the projects page!') }}
+    {{ t('This is the projects page!') }}
   </div>
 </template>
 
-<script>
-import { defineComponent } from '@nuxtjs/composition-api';
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 
-export default defineComponent({
-  name: 'ProjectPage',
+const { t } = useI18n();
 
-  head() {
-    return {
-      title: this.$t('Project page'),
-    };
-  },
+useHead({
+  title: t('Project page'),
 });
 </script>
 

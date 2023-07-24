@@ -30,12 +30,12 @@ for (const alias in aliases) {
   module.exports.jsconfig[alias] = aliasTo.includes('/index.')
     ? [aliasTo]
     : [
-      aliasTo + '/index.js',
-      aliasTo + '/index.json',
-      aliasTo + '/index.vue',
-      aliasTo + '/index.scss',
-      aliasTo + '/index.css',
-    ];
+        aliasTo + '/index.js',
+        aliasTo + '/index.json',
+        aliasTo + '/index.vue',
+        aliasTo + '/index.scss',
+        aliasTo + '/index.css',
+      ];
 }
 
 const jsconfigTemplate = require('./jsconfig.template');
@@ -55,15 +55,17 @@ function writeConfigFile(configPath, configTemplate, configFileName) {
       {
         ...require('./.prettierrc'),
         parser: 'json',
-      },
+      }
     ),
     (error) => {
       if (error) {
         // eslint-disable-next-line no-console
-        console.error('Error while creating tsconfig.json from aliases.config.js.');
+        console.error(
+          'Error while creating tsconfig.json from aliases.config.js.'
+        );
         throw error;
       }
-    },
+    }
   );
 }
 

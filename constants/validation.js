@@ -20,10 +20,10 @@ export const VALIDATION_MESSAGE = Object.freeze({
 
 export const VALIDATION_REGEX = Object.freeze({
   EMAIL: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-  PHONE: /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm,
+  PHONE:
+    /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm,
   ALPHA: /^[A-Za-z ]*$/g,
   TEXT: /^[A-Za-z0-9-_ ]*$/g,
   NUMBER: /^[0-9]*$/g,
   URL: /^(https?:\/\/)?([\da-z.-]+\.[a-z.]{2,6}|[\d.]+)([/:?=&#]{1}[\da-z.-]+)*[/?]?$/g,
 });
-

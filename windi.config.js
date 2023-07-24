@@ -15,12 +15,6 @@ export default defineConfig({
   safelist: [],
   extract: {
     include: ['**/*.{vue,html,jsx}'],
-    exclude: [
-      'node_modules',
-      'dist',
-      '.git',
-      '.github',
-      '.nuxt',
-    ],
+    exclude: ['node_modules', 'dist', '.git', '.github', '.nuxt'],
   },
 });

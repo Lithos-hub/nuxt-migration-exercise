@@ -48,19 +48,10 @@
   }
 }
 
-@mixin boxShadow(
-  $x: 0,
-  $y: 0,
-  $blur: 0,
-  $spread: 0,
-  $color: 0,
-  $inset: false
-) {
+@mixin boxShadow($x: 0, $y: 0, $blur: 0, $spread: 0, $color: 0, $inset: false) {
   @if ($inset) {
     box-shadow: inset $x $y $blur $spread $color;
-  }
-
-  @else {
+  } @else {
     box-shadow: $x $y $blur $spread $color;
   }
 }

@@ -14,7 +14,7 @@ export const forward = (url) => {
       url = url || BASE_FORWARD_API + req.url;
 
       // Replace params in url
-      Object.keys(params).forEach(key => {
+      Object.keys(params).forEach((key) => {
         url = url.replace(new RegExp(`[${key}]`), params[key]);
       });
 
@@ -24,23 +24,21 @@ export const forward = (url) => {
         method: req.method,
         data: req.body,
         headers: {
-          cookie: req.headers.cookie
-        }
+          cookie: req.headers.cookie,
+        },
       });
 
       return res.status(response.status).json(response.data);
     } catch (error) {
       if (CONFIG.IS_DEV) {
-        logger.debug(
-          `${chalk.bold.blue(url)}: ${chalk.red(error)}`
-        );
+        logger.debug(`${chalk.bold.blue(url)}: ${chalk.red(error)}`);
       } else {
-        logger.info(
-          `${chalk.bold.blue(url)}: ${chalk.red(error)}`
-        );
+        logger.info(`${chalk.bold.blue(url)}: ${chalk.red(error)}`);
       }
 
-      return res.status(error?.response?.status || 500).json(error?.response?.data);
+      return res
+        .status(error?.response?.status || 500)
+        .json(error?.response?.data);
     }
   };
 };

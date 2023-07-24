@@ -47,5 +47,4 @@ export default defineComponent({
   overflow: auto;
   padding: 1rem;
 }
-
 </style>

@@ -34,45 +34,26 @@
   </div>
 </template>
 
-<script>
-import {
-  computed,
-  defineComponent,
-  reactive,
-  toRefs,
-  useContext,
-} from '@nuxtjs/composition-api';
+<script setup lang="ts">
+import { useAuthStore } from '@/stores';
 
-export default defineComponent({
-  name: 'MySidebar',
-  props: {},
-  setup() {
-    const { store } = useContext();
+const { currentUser } = useAuthStore();
 
-    const data = reactive({
-      sidebarItems: [
-        {
-          icon: 'icon-star-o',
-          route: { name: 'index' },
-        },
-        {
-          icon: 'icon-user',
-          route: { name: 'users' },
-        },
-        {
-          icon: 'icon-archive',
-          route: { name: 'projects' },
-        },
-      ],
-    });
-
-    const currentUser = computed(() => store.getters['auth/currentUser'] || {});
-
-    return {
-      ...toRefs(data),
-      currentUser,
-    };
-  },
+const { sidebarItems } = reactive({
+  sidebarItems: [
+    {
+      icon: 'icon-star-o',
+      route: { name: 'index' },
+    },
+    {
+      icon: 'icon-user',
+      route: { name: 'users' },
+    },
+    {
+      icon: 'icon-archive',
+      route: { name: 'projects' },
+    },
+  ],
 });
 </script>
 

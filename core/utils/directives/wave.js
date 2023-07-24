@@ -1,7 +1,8 @@
 export default {
   inserted(el, binding) {
     el.addEventListener('click', (event) => {
-      const duration = binding.value && !isNaN(binding.value) ? binding.value : 600;
+      const duration =
+        binding.value && !isNaN(binding.value) ? binding.value : 600;
 
       el.classList.add('my-wave-effect');
 

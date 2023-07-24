@@ -1,5 +1,9 @@
 import { useContext } from '@nuxtjs/composition-api';
-import { VALIDATION_MESSAGE, VALIDATION_REGEX, VALIDATION_TYPE } from '@/constants/validation';
+import {
+  VALIDATION_MESSAGE,
+  VALIDATION_REGEX,
+  VALIDATION_TYPE,
+} from '@/constants/validation';
 
 export const useValidation = () => {
   const { i18n } = useContext();
@@ -9,7 +13,7 @@ export const useValidation = () => {
   const rules = {
     required: {
       required: true,
-      message: i18n.t(VALIDATION_MESSAGE.REQUIRED)
+      message: i18n.t(VALIDATION_MESSAGE.REQUIRED),
     },
     email: {
       trigger: ['change'],

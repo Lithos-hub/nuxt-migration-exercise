@@ -191,6 +191,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
+    // '@nuxtjs/eslint-module', // => error
     '@element-plus/nuxt',
     '@pinia/nuxt',
     [

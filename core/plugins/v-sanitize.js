@@ -6,9 +6,21 @@ export const FILTER_BASIC = Object.freeze({
 });
 
 export const FILTER_INLINE = Object.freeze({
-  ALLOWED_TAGS: ['a', 'b', 'br', 'code', 'em', 'i', 'span', 'strike', 'strong', 'u'],
+  ALLOWED_TAGS: [
+    'a',
+    'b',
+    'br',
+    'code',
+    'em',
+    'i',
+    'span',
+    'strike',
+    'strong',
+    'u',
+  ],
   ALLOWED_ATTR: ['href', 'target', 'style'],
-  ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel):|[^a-z]|[a-z+.-]+(?:[^a-z+.\-:]|$))/i,
+  ALLOWED_URI_REGEXP:
+    /^(?:(?:(?:f|ht)tps?|mailto|tel):|[^a-z]|[a-z+.-]+(?:[^a-z+.\-:]|$))/i,
 });
 
 export const FILTER_NOTHING = Object.freeze({
