@@ -4,11 +4,13 @@
     <div :class="$style.layoutInner">
       <LayoutMyNavbar />
       <div :class="$style.layoutPageWrapper">
-        <nuxt />
+        <slot />
       </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts"></script>
 
 <style lang="scss" module>
 .layoutWrapper {

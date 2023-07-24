@@ -39,22 +39,20 @@ import { useAuthStore } from '@/stores';
 
 const { currentUser } = useAuthStore();
 
-const { sidebarItems } = reactive({
-  sidebarItems: [
-    {
-      icon: 'icon-star-o',
-      route: { name: 'index' },
-    },
-    {
-      icon: 'icon-user',
-      route: { name: 'users' },
-    },
-    {
-      icon: 'icon-archive',
-      route: { name: 'projects' },
-    },
-  ],
-});
+const sidebarItems = ref([
+  {
+    icon: 'icon-star-o',
+    route: { name: 'index' },
+  },
+  {
+    icon: 'icon-user',
+    route: { name: 'users' },
+  },
+  {
+    icon: 'icon-archive',
+    route: { name: 'projects' },
+  },
+]);
 </script>
 
 <style lang="scss" module>
