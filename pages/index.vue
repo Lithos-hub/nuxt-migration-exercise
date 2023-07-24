@@ -24,7 +24,7 @@
       <span class="text-primary-300"> {{ $t('Hello world!') }}</span>
       <span class="text-warning-700">{{ $t('Hello world!') }}</span>
     </div>
-    <ExampleBase />
+    <BaseExampleBase />
   </div>
 </template>
 

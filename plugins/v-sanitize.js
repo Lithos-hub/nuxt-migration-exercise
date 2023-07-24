@@ -32,11 +32,11 @@ export const FILTER_STRIP = Object.freeze({
   ADD_ATTR: [],
 });
 
-export default function (ctx, inject) {
+export default defineNuxtPlugin((nuxtApp) => {
   const sanitizeFn = (dirty, opts = null) => sanitize(dirty, opts);
   Object.defineProperty(Vue, '$sanitize', sanitizeFn);
 
-  Vue.directive('sanitize', (el, binding) => {
+  nuxtApp.provide('sanitize', (el, binding) => {
     if (binding.value !== binding.oldValue) {
       if (Array.isArray(binding.value)) {
         el.innerHTML = sanitize(binding.value[1], binding.value[0]);
@@ -55,5 +55,9 @@ export default function (ctx, inject) {
     }
   });
 
-  inject('sanitize', sanitizeFn);
-}
+  return {
+    provide: {
+      sanitize: () => sanitizeFn,
+    },
+  };
+});

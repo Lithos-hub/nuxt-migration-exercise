@@ -1,9 +1,7 @@
-import en from '@/locales/en.yaml';
-import vi from '@/locales/vi.yaml';
+import en from '@/content/en.yaml';
+import vi from '@/content/vi.yaml';
 
 export default {
-  legacy: false,
-  locale: 'en',
   messages: {
     en,
     vi,

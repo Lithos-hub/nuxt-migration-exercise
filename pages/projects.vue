@@ -2,7 +2,7 @@
   <div>
     <div>{{ $t('This is the project page wrapper') }}</div>
     {{ count }}
-    <nuxt-child />
+    <slot />
   </div>
 </template>
 

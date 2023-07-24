@@ -1,29 +1,14 @@
 <template>
   <div :class="$style.layoutWrapper">
-    <MySidebar />
+    <LayoutMySidebar />
     <div :class="$style.layoutInner">
-      <MyNavbar />
+      <LayoutMyNavbar />
       <div :class="$style.layoutPageWrapper">
         <nuxt />
       </div>
     </div>
   </div>
 </template>
-
-<script>
-import { defineComponent } from '@nuxtjs/composition-api';
-import MyNavbar from '@/components/layout/MyNavbar/MyNavbar.vue';
-import MySidebar from '@/components/layout/MySidebar/MySidebar.vue';
-
-export default defineComponent({
-  name: 'DefaultLayout',
-  components: {
-    MyNavbar,
-    MySidebar,
-  },
-  setup() {},
-});
-</script>
 
 <style lang="scss" module>
 .layoutWrapper {
